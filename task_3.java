@@ -1,4 +1,4 @@
-@RunWith(Parameterized.class) // Напиши аннотацию для параметризованных тестов
+@RunWith(Parameterized.class) 
 public class CheckIsAdultTest {
 	
   private final int age;
@@ -6,16 +6,16 @@ public class CheckIsAdultTest {
 
   public CheckIsAdultTest(int age, boolean result) {
 	this.age = age;
-    this.result = result;// Инициализируй поля класса в конструкторе
+    this.result = result;
   }
 
- @Parameterized.Parameters // Пометь метод аннотацией для параметров
+ @Parameterized.Parameters 
   public static Object[][] getTextData() {
 	return new Object[][] {
-		{21, true},
+	{21, true},
         {17, false},
         {18, true},
-        {19, true},// Заполни массив тестовыми данными и ожидаемым результатом
+        {19, true},
     };
   }
 
@@ -24,9 +24,8 @@ public class CheckIsAdultTest {
 	Program program = new Program();
 	
     boolean isAdult = program.checkIsAdult(age);
-	if (age >= 18){
-    assertEquals("Возраст должен быть больше 18", true, isAdult);
-        } 
-	}
+	
+    assertEquals("Возраст должен быть больше 18", result, isAdult);
+    }	
 }
 
